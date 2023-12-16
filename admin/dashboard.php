@@ -1,6 +1,7 @@
 <?php
   require ('inc/essentials.php');
   adminlogin();
+ 
 ?>
 
 <!DOCTYPE html>
