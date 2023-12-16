@@ -109,11 +109,11 @@
             modal.hide();
 
             if(this.responseText == 1){
-               console.log('data updated');
+               alert('success', 'Changes saved!');
                get_general();
             }
             else{
-                console.log('no change made');
+                alert('error', 'No Changes made!');
             }
         }
 
