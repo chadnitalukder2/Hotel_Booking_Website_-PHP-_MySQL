@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" onclick="site_title.value = general_data.site_title,site_about.value = general_data.site_about" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
-                                        <button type="button" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                                        <button type="button" onclick="upd_general(site_title.value,site_about.value)" class="btn custom-bg text-white shadow-none">SUBMIT</button>
                                     </div>
                                 </div>
                             </form>
@@ -96,6 +96,26 @@
 
         xhr.send('get_general');
     }
+
+    function upd_general(site_title_val,site_about_val){
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/settings_crud.php", true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload= function(){
+            console.log(this.responseText)
+        //    general_data =JSON.parse( this.responseText);
+           
+        //    site_title.innerText = general_data.site_title;
+        //    site_about.innerText = general_data.site_about;
+        
+        //    site_title_inp.value = general_data.site_title;
+        //    site_about_inp.value = general_data.site_about;
+        }
+
+        xhr.send('site_title='+site_title_val+'&site_about='+site_about_val+'&upd_general');
+    }
+
     window.onload = function(){
         get_general();
     }
