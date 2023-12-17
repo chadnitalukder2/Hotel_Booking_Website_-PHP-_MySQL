@@ -21,10 +21,10 @@
           sea lorem, aliquyam tempor est accusam ipsum sadipscing.
     </p>
 </div>
-<!-- ============== -->
+<!----------------------------- -->
 <div class="container">
     <div class="row">
-        <!-- ============== -->
+        <!------------------------------->
         <div class="col-lg-6 col-md-6 mb-5 px-4">
             <div class="bg-white rounded shadow p-4 ">
                     <iframe class="w-100 rounded mb-4" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57903.02583807922!2d91.8198355358693!3d24.900058347637763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054d3d270329f%3A0xf58ef93431f67382!2sSylhet!5e0!3m2!1sen!2sbd!4v1702390523516!5m2!1sen!2sbd"  loading="lazy" ></iframe>
@@ -61,7 +61,7 @@
                 </a>
             </div>
         </div>
-        <!-- ============== -->
+        <!------------------------------->
         <div class="col-lg-6 col-md-6  px-4">
             <div class="bg-white rounded shadow p-4 ">
                 <form>
@@ -86,7 +86,7 @@
                 </form>
             </div>
         </div>
-          <!-- ============== -->
+        <!------------------------------>
     </div>
 </div>
 <!-- =============Footer start===================== -->
