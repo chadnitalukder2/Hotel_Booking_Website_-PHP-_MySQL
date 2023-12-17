@@ -2,16 +2,24 @@
     require ('../inc/db_config.php');
     require ('../inc/essentials.php');
     adminlogin();
-
+// ===============================================================================================
     if(isset($_POST['get_general'])){
-        $q = "SELECT * FROM `settings` WHERE `sr_no` = ? ";
-        $values = [1];
-        $res = select($q, $values,"i");
+        // $q = "SELECT * FROM settings WHERE sr_no = ? ";
+        // $values = [1];
+        // $res = select($q, $values,"i");
+
+        // Extra code start
+        $q = "SELECT * FROM settings WHERE sr_no = '1' ";
+        $conn = $GLOBALS['conn'];
+        $res = $conn->query($q);
+        // Extra code end
+
         $data= mysqli_fetch_assoc($res);
+
         $json_data = json_encode($data);
         echo $json_data;
     }
-
+// ===============================================================================================
     if(isset($_POST['upd_general'])){
         $frm_data = filteration($_POST);
 
@@ -23,7 +31,7 @@
 
             echo $res;
     }
-
+// ===============================================================================================
     if(isset($_POST['upd_shutdown'])){
         $frm_data = ($_POST['upd_shutdown'] == 0) ? 1 : 0;
 

@@ -9,7 +9,7 @@
     if(!$conn){
         die("Cannot Connect to database".mysqli_connect_error());
     }
-   
+   // ===============================================================================================
     function filteration($data){
         foreach($data as $key => $value){
             $data[$key] = trim($value);
@@ -19,7 +19,7 @@
         }
         return $data;
     }
-
+// ===============================================================================================
     function select($sql, $values, $datatypes){
         $conn = $GLOBALS['conn'];
         if($stmt = mysqli_prepare($conn, $sql)){
@@ -38,7 +38,7 @@
             die('Query cannot be prepared - Select');
         }
     }
-
+// ===============================================================================================
     function update($sql, $values, $datatypes){
         $conn = $GLOBALS['conn'];
         if($stmt = mysqli_prepare($conn, $sql)){
