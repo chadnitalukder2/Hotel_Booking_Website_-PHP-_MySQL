@@ -126,15 +126,24 @@
                             <!-- ------------------------- -->
                             <div class="col-lg-6">
                                 <div class="mb-4">
-                                    <h6 class="card-subtitle mb-1 fw-bold">Social Links Numbers</h6>
+                                    <h6 class="card-subtitle mb-1 fw-bold">Social Links </h6>
                                     <p class="card-text mb-1" id="address">
-                                        <i class="bi bi-telephone-fill"></i>
-                                        <span id="pn1"></span>
+                                        <i class="bi bi-facebook me-1"></i>
+                                        <span id="fb"></span>
                                     </p>
                                     <p class="card-text" id="address">
-                                        <i class="bi bi-telephone-fill"></i>
-                                        <span id="pn2"></span>
+                                        <i class="bi bi-instagram me-1"></i>
+                                        <span id="insta"></span>
                                     </p>
+                                    <p class="card-text" id="address">
+                                        <i class="bi bi-twitter me-1"></i>
+                                        <span id="tw"></span>
+                                    </p>
+                                </div>
+                                <!-- ------------------------- -->
+                                <div class="mb-4">
+                                    <h6 class="card-subtitle mb-1 fw-bold">Social Links </h6>
+                                    <iframe id="iframe" class="border p-2 w-100" loading="Lazy"></iframe>
                                 </div>
                             </div>
 
