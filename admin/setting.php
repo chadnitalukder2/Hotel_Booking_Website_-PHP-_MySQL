@@ -450,18 +450,25 @@
         xhr.open("POST", "ajax/settings_crud.php", true);
        
         xhr.onload= function(){
-            console.log(this.responseText);
-            // var myModal = document.getElementById('General-s');
-            // var modal = bootstrap.Modal.getInstance(myModal);
-            // modal.hide();
+            var myModal = document.getElementById('Team-s');
+            var modal = bootstrap.Modal.getInstance(myModal);
+            modal.hide();
+        
+            if(this.responseText == 'inv_img'){
+                alert('error', 'only jpg and png images are allowes!');
+            }
+            else if(this.responseText == 'inv_size'){
+                alert('error', 'Image should be less than 2MB!');
+            }
+            else if(this.responseText == 'upd_failed'){
+                alert('error', 'Image upload failed. Server down!');
+            }
+            else{
+                alert('success', 'New member added!');
+                member_name_inp.value = '';
+                member_picture_inp.value = '';
+            }
 
-            // if(this.responseText == 1){
-            //    alert('success', 'Changes saved!');
-            //    get_general();
-            // }
-            // else{
-            //     alert('error', 'No Changes made!');
-            // }
         }
 
         xhr.send(data);
