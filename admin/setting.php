@@ -152,7 +152,7 @@
 <!-- ===================Contact details Modal===================================================== -->
                 <div class="modal fade" id="contact-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
-                        <form id="general_s_form">
+                        <form id="contacts_s_form">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="staticBackdropLabel">Contact Sattings</h5>
@@ -201,6 +201,10 @@
                                                         <span class="input-group-text" ><i class="bi bi-twitter me-1"></i></span>
                                                         <input type="text" name="tw" id="tw_inp" class="form-control shadow-none" required>
                                                     </div>
+                                                </div>
+                                                <div class=" mb-3">
+                                                    <label  class="form-label fw-bold ">Ifarme Src</label>
+                                                    <input name="iframe" id="iframe_inp" type="text" class="form-control shadow-none" required>
                                                 </div>
                                             </div>
                                             <!-- =---------------------------------------------- -->
@@ -329,9 +333,18 @@
                 document.getElementById(contacts_p_id[i]).innerText = contacts_data[i+1]; 
            }
            iframe.src = contacts_data[9];
+           contacts_inp(contacts_data);
         }
 
         xhr.send('get_contacts');
+    }
+    //-----------------get data--------------- 
+    function contacts_inp(data){
+        let contacts_inp_id = ['address_inp', 'gmap_inp', 'ph1_inp', 'ph2_inp', 'email_inp', 'fb_inp', 'insta_inp', 'tw_inp', 'iframe_inp'];
+
+        for(i = 0; i < contacts_inp_id.length; i++){
+            document.getElementById(contacts_inp_id[i]).value = data[i+1];
+        }
     }
 // ===============================================================================================
 window.onload = function(){
