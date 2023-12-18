@@ -82,7 +82,11 @@
             echo $img_r;
         }
         else{
-            
+            $q = "INSERT INTO `team_details`(`name`, `picture`)
+                 VALUES (? , ?)";
+            $values = [$frm_data['name'], $img_r];
+            $res = insert($q, $values, 'ss');
+            echo $res;
         }
     
     

@@ -1,4 +1,8 @@
 <?php
+#-------------------------uploade image---------------
+define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'].'/hb-website/images/'); # image folder path
+define('ABOUT_FOLDER', 'about/');
+
 # ------------------------------------------------------------
     function adminlogin(){
         session_start();
@@ -29,9 +33,7 @@
     }
 # =================================Management Team data=================================
 #-------------------------uploade image---------------
-    define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT']./hb-website/images/); # image folder path
-    define('ABOUT_FOLDER', 'about/')
-
+   
     function uploadImage($image, $folder){
         $valid_mime = ['image/jpeg','image/jpg', 'image/png', 'image/webp'];
         $img_mime = $image['type'];
@@ -53,7 +55,6 @@
             else{
                 return 'upd_failed';
             }
-            
         }
     }
 

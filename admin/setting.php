@@ -438,7 +438,7 @@
     team_s_form.addEventListener('submit', function(e){
         e.preventDefault()
         add_member();
-    })
+    });
 //----------------------------------Add data------------------------
     function add_member(){
         let data = new FormData();
@@ -450,6 +450,7 @@
         xhr.open("POST", "ajax/settings_crud.php", true);
        
         xhr.onload= function(){
+            console.log(this.responseText);
             // var myModal = document.getElementById('General-s');
             // var modal = bootstrap.Modal.getInstance(myModal);
             // modal.hide();
