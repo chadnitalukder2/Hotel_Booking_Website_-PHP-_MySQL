@@ -188,8 +188,19 @@
                                             <!-- =---------------------------------------------- -->
                                             <div class="col-md-6">
                                                 <div class=" mb-3">
-                                                    <label  class="form-label fw-bold ">Email</label>
-                                                    <input name="email" id="email_inp" type="text" class="form-control shadow-none" required>
+                                                    <label  class="form-label fw-bold ">Social links</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" ><i class="bi bi-facebook me-1"></i></span>
+                                                        <input type="text" name="fb" id="fb_inp" class="form-control shadow-none" required>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" > <i class="bi bi-instagram me-1"></i></span>
+                                                        <input type="text" name="insta" id="insta_inp" class="form-control shadow-none" required>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" ><i class="bi bi-twitter me-1"></i></span>
+                                                        <input type="text" name="tw" id="tw_inp" class="form-control shadow-none" required>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!-- =---------------------------------------------- -->
