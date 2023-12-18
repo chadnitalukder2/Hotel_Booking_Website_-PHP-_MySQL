@@ -213,7 +213,7 @@
                                 </div>
                                 <!-- =---------------------------------------------- -->
                                 <div class="modal-footer">
-                                    <button type="button" onclick="site_title.value = general_data.site_title,site_about.value = general_data.site_about" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
+                                    <button type="button" onclick="contacts_inp(contacts_data)" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
                                     <button type="submit"  class="btn custom-bg text-white shadow-none">SUBMIT</button>
                                 </div>
                             </div>
@@ -231,7 +231,8 @@
     let general_s_form = document.getElementById('general_s_form');
     let site_title_inp = document.getElementById('site_title_inp');
     let site_about_inp = document.getElementById('site_about_inp');
-
+//----------------------contact update----
+    let contacts_s_form = document.getElementById('contacts_s_form');
 // =================================general part==============================================================
     function get_general(){
         let site_title = document.getElementById('site_title');
@@ -271,7 +272,7 @@
         e.preventDefault();
         upd_general(site_title_inp.value,site_about_inp.value)
     });
-// -------------------------------------------------------------------
+// -------------------------update general------------------------------------------
     function upd_general(site_title_val,site_about_val){
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "ajax/settings_crud.php", true);
@@ -294,7 +295,7 @@
 
         xhr.send('site_title='+site_title_val+'&site_about='+site_about_val+'&upd_general');
     }
-// -----------------------------------------------------------------
+// --------------------------upd_shutdown---------------------------------------
     function upd_shutdown(val){
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "ajax/settings_crud.php", true);
@@ -303,7 +304,6 @@
         xhr.onload = function(){
             if(this.responseText == 1 && general_data.shutdown == 0){
                alert('success', 'Site has been shutdown!');
-              
             }
             else{
                 alert('success', 'Shutdown mode off!');
@@ -315,7 +315,7 @@
        xhr.send('upd_shutdown='+val );
     }
 
-// =================================general part==============================================================
+// =================================Contact part==============================================================
     function get_contacts(){
        let contacts_p_id = ['address', 'gmap', 'ph1', 'ph2', 'email', 'fb', 'insta', 'tw'];
        let iframe = document.getElementById('iframe');
@@ -338,13 +338,51 @@
 
         xhr.send('get_contacts');
     }
-    //-----------------get data--------------- 
+//----------------------------------get data------------------------
     function contacts_inp(data){
         let contacts_inp_id = ['address_inp', 'gmap_inp', 'ph1_inp', 'ph2_inp', 'email_inp', 'fb_inp', 'insta_inp', 'tw_inp', 'iframe_inp'];
 
         for(i = 0; i < contacts_inp_id.length; i++){
             document.getElementById(contacts_inp_id[i]).value = data[i+1];
         }
+    }
+//----------------------contact update-----------
+    contacts_s_form.addEventListener('submit',function(e) {
+        e.preventDefault();
+        upd_contats();
+    });
+//--------------------update function------------
+    function upd_contats(){
+        let index =  ['address', 'gmap', 'ph1', 'ph2', 'email', 'fb', 'insta', 'tw', 'iframe'];
+        let contacts_inp_id = ['address_inp', 'gmap_inp', 'ph1_inp', 'ph2_inp', 'email_inp', 'fb_inp', 'insta_inp', 'tw_inp', 'iframe_inp'];
+
+        let data_str= "";
+
+        for(i=0; i < index.length; i++){
+            data_str += index[i] + "=" + document.getElementById(contacts_inp_id[i]).value + '&';
+        }
+        //console.log(data_str);
+        data_str += "upd_contacts";
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/settings_crud.php", true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function(){
+            var myModal = document.getElementById('contact-s');
+            var modal = bootstrap.Modal.getInstance(myModal);
+            modal.hide();
+
+            if(this.responseText == 1 ){
+               alert('success', 'Change saved!');
+               get_contacts();
+            }
+            else{
+                alert('error', 'No changes made!');
+            }
+        }
+
+        xhr.send(data_str);
     }
 // ===============================================================================================
 window.onload = function(){

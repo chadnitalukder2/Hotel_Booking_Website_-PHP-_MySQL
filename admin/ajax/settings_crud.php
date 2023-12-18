@@ -20,7 +20,7 @@
         $json_data = json_encode($data);
         echo $json_data;
     }
-// -----------------------------------------------------------------
+// ----------------------------update-------------------------------------
     if(isset($_POST['upd_general'])){
         $frm_data = filteration($_POST);
 
@@ -53,5 +53,17 @@
         $data= mysqli_fetch_assoc($res);
         $json_data = json_encode($data);
         echo $json_data;
+    }
+// -----------------------------------------------------------------
+    if(isset($_POST['upd_contacts'])){
+        $frm_data = filteration($_POST);
+
+        $q="UPDATE `contact_details`
+         SET `address`=?, `gmap`=?, `ph1`=?, `ph2`=?, `email`=?, `fb`=?, `insta`=?, `tw`=?, `iframe`=?
+         WHERE `sr_no` =? ";
+            $values = [$frm_data['address'], $frm_data['gmap'],  $frm_data['ph1'], $frm_data['ph2'], $frm_data['email'], $frm_data['fb'], $frm_data['insta'], $frm_data['tw'], $frm_data['iframe'], 1];
+            $res = update($q, $values, 'sssssssssi');
+
+            echo $res;
     }
 ?>
