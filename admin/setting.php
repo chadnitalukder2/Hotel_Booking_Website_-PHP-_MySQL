@@ -151,7 +151,7 @@
                 </div>
 <!-- ===================Contact details Modal===================================================== -->
                 <div class="modal fade" id="contact-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <form id="general_s_form">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -161,23 +161,42 @@
                                     <div class="container-fluid p-0">
                                         <div class="row">
                                             <div class="col-md-6">
-
+                                                <div class=" mb-3">
+                                                    <label  class="form-label fw-bold ">Address</label>
+                                                    <input name="address" id="address_inp" type="text" class="form-control shadow-none" required>
+                                                </div>
+                                                <div class=" mb-3">
+                                                    <label  class="form-label fw-bold ">Google Map</label>
+                                                    <input name="gmap" id="gmap_inp" type="text" class="form-control shadow-none" required>
+                                                </div>
+                                                <div class=" mb-3">
+                                                    <label  class="form-label fw-bold ">Phone Number (With country code)</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" ><i class="bi bi-telephone-fill"></i></span>
+                                                        <input type="text" name="ph-1" id="ph1_inp" class="form-control shadow-none" required>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" ><i class="bi bi-telephone-fill"></i></span>
+                                                        <input type="text" name="ph-2" id="ph2_inp" class="form-control shadow-none" required>
+                                                    </div>
+                                                </div>
+                                                <div class=" mb-3">
+                                                    <label  class="form-label fw-bold ">Email</label>
+                                                    <input name="email" id="email_inp" type="text" class="form-control shadow-none" required>
+                                                </div>
                                             </div>
+                                            <!-- =---------------------------------------------- -->
                                             <div class="col-md-6">
-                                                
+                                                <div class=" mb-3">
+                                                    <label  class="form-label fw-bold ">Email</label>
+                                                    <input name="email" id="email_inp" type="text" class="form-control shadow-none" required>
+                                                </div>
                                             </div>
+                                            <!-- =---------------------------------------------- -->
                                         </div>
                                     </div>
-
-                                    <!-- <div class=" mb-3">
-                                        <label  class="form-label fw-bold ">Site Title</label>
-                                        <input name="site_title" id="site_title_inp" type="text" class="form-control shadow-none" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label  class="form-label fw-bold">About us</label>
-                                        <textarea name="site_about"  id="site_about_inp" class="form-control shadow-none"  rows="5" required></textarea>
-                                    </div> -->
                                 </div>
+                                <!-- =---------------------------------------------- -->
                                 <div class="modal-footer">
                                     <button type="button" onclick="site_title.value = general_data.site_title,site_about.value = general_data.site_about" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
                                     <button type="submit"  class="btn custom-bg text-white shadow-none">SUBMIT</button>
