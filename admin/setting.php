@@ -220,6 +220,49 @@
                         </form>
                     </div>
                 </div>
+<!-- ========================Management Team setting ========================================== -->
+                <div class="card border-0 shadow-sm mb-4" >
+                    <div class="card-body">
+                         <!-- -------------------------------- -->
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h5 class="card-title m-0">Management Team </h5>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#Team-s">
+                            <i class="bi bi-plus-square"></i> Add
+                            </button>
+                        </div>
+                         <!-- -------------------------------- -->
+                        <div class="row" id="team_data">  
+
+                        </div>
+                    </div>
+                </div>
+<!-- ===================Management Team setting Modal===================================================== -->
+                <div class="modal fade" id="Team-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form id="team_s_form">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Add Team Member</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class=" mb-3">
+                                        <label  class="form-label fw-bold ">Name</label>
+                                        <input name="member_name" id="member_name_inp" type="text" class="form-control shadow-none" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label  class="form-label fw-bold">Picture</label>
+                                        <input name="member_picture" id="member_picture_inp" type="file" accept="[.jpg, .png, .webp, .jpeg]" class="form-control shadow-none" required>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" onclick=" " class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
+                                    <button type="submit"  class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 <!-- =------------------------------------------------ -->
             </div>
         </div>
@@ -231,7 +274,14 @@
     let general_s_form = document.getElementById('general_s_form');
     let site_title_inp = document.getElementById('site_title_inp');
     let site_about_inp = document.getElementById('site_about_inp');
-//----------------------contact update----
+
+    //----------------------Management Team update-------
+    let team_s_form = document.getElementById('team_s_form');
+    let member_name_inp = document.getElementById('member_name_inp');
+    let member_picture_inp = document.getElementById('member_picture_inp');
+
+
+    //----------------------contact update----
     let contacts_s_form = document.getElementById('contacts_s_form');
 // =================================general part==============================================================
     function get_general(){
@@ -384,6 +434,38 @@
 
         xhr.send(data_str);
     }
+//===========================Management Team ============================================
+    team_s_form.addEventListener('submit', function(e){
+        e.preventDefault()
+        add_member();
+    })
+//----------------------------------Add data------------------------
+    function add_member(){
+        let data = new FormData();
+        data.append('name',member_name_inp.value );
+        data.append('picture',member_picture_inp.files[0]);
+        data.append('add_member', '');
+        //--------------------------update code-----------------
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/settings_crud.php", true);
+       
+        xhr.onload= function(){
+            // var myModal = document.getElementById('General-s');
+            // var modal = bootstrap.Modal.getInstance(myModal);
+            // modal.hide();
+
+            // if(this.responseText == 1){
+            //    alert('success', 'Changes saved!');
+            //    get_general();
+            // }
+            // else{
+            //     alert('error', 'No Changes made!');
+            // }
+        }
+
+        xhr.send(data);
+    }
+
 // ===============================================================================================
 window.onload = function(){
         get_general();

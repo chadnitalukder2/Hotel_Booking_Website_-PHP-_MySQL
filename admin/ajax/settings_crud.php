@@ -54,7 +54,7 @@
         $json_data = json_encode($data);
         echo $json_data;
     }
-// -----------------------------------------------------------------
+// -------------------------update contact----------------------------------------
     if(isset($_POST['upd_contacts'])){
         $frm_data = filteration($_POST);
 
@@ -66,4 +66,15 @@
 
             echo $res;
     }
+// =================================Management Team data==============================================================
+    if(isset($_post['add_member'])){
+        $frm_data = filteration($_POST);
+    }
+
+
+
+
+
+
+
 ?>
