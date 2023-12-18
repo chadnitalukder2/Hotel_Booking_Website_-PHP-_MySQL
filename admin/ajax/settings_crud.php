@@ -3,7 +3,7 @@
     require ('../inc/essentials.php');
     adminlogin();
 
-// ===============================general data================================================================
+# ===============================general data================================================================
     if(isset($_POST['get_general'])){
         // $q = "SELECT * FROM settings WHERE sr_no = ? ";
         // $values = [1];
@@ -20,7 +20,7 @@
         $json_data = json_encode($data);
         echo $json_data;
     }
-// ----------------------------update-------------------------------------
+#----------------------------update-------------------------------------
     if(isset($_POST['upd_general'])){
         $frm_data = filteration($_POST);
 
@@ -32,7 +32,7 @@
 
             echo $res;
     }
-// -----------------------------------------------------------------
+# -----------------------------------------------------------------
 
     if(isset($_POST['upd_shutdown'])){
         $frm_data = ($_POST['upd_shutdown'] == 0) ? 1 : 0;
@@ -45,7 +45,7 @@
 
             echo $res;
     }
-// =================================Contact data==============================================================
+# =================================Contact data==============================================================
     if(isset($_POST['get_contacts'])){
         $q = "SELECT * FROM contact_details WHERE sr_no = ? ";
         $values = [1];
@@ -54,7 +54,7 @@
         $json_data = json_encode($data);
         echo $json_data;
     }
-// -------------------------update contact----------------------------------------
+# -------------------------update contact----------------------------------------
     if(isset($_POST['upd_contacts'])){
         $frm_data = filteration($_POST);
 
@@ -66,9 +66,26 @@
 
             echo $res;
     }
-// =================================Management Team data==============================================================
+# =================================Management Team data==============================================================
     if(isset($_post['add_member'])){
         $frm_data = filteration($_POST);
+        #----------image upload------
+        $img_r = uploadImage($_FILES['picture'],ABOUT_FOLDER);
+        
+        if($img_r == 'inv_img'){
+            echo $img_r;
+        }
+        else if($img_r == 'inv_size'){
+            echo $img_r;
+        }
+        else if($img_r == 'upd_failed'){
+            echo $img_r;
+        }
+        else{
+            
+        }
+    
+    
     }
 
 
