@@ -455,28 +455,46 @@
                   data;
               }
             ?>
-           
         </div>
          <!-- ---------------------------->
         <div class="bg-white p-4 rounded mb-4">
           <h5>Follow us</h5>
-          <a href="#" class="d-inline-block mb-3 ">
-           <span class="badge bg-light text-dark fs-6 p-2">
-            <i class="bi bi-twitter me-1"></i><?php echo $contact_r['tw'] ;?>
-           </span>
-          </a>
+          <?php
+              if($contact_r['tw']!=''){
+                echo <<<data
+                  <a href="$contact_r[tw]" class="d-inline-block mb-3 ">
+                      <span class="badge bg-light text-dark fs-6 p-2">
+                        <i class="bi bi-twitter me-1"></i> $contact_r[tw]
+                      </span>
+                  </a>
+                data;
+              }
+          ?>
           <br>
-          <a href="#" class="d-inline-block mb-3 ">
-            <span class="badge bg-light text-dark fs-6 p-2">
-             <i class="bi bi-facebook me-1"></i><?php echo $contact_r['fb'] ;?>
-            </span>
-           </a>
+          <?php
+              if($contact_r['fb']!=''){
+                echo <<<data
+                  <a href="$contact_r[fb]" class="d-inline-block mb-3 ">
+                    <span class="badge bg-light text-dark fs-6 p-2">
+                      <i class="bi bi-facebook me-1"></i> $contact_r[fb]
+                    </span>
+                  </a>
+                data;
+              }
+          ?>
            <br>
-           <a href="#" class="d-inline-block ">
-            <span class="badge bg-light text-dark fs-6 p-2">
-             <i class="bi bi-instagram me-1"></i><?php echo $contact_r['insta'] ;?>
-            </span>
-           </a>
+           <?php
+              if($contact_r['insta']!=''){
+                echo <<<data
+                  <a href="$contact_r[insta]" class="d-inline-block ">
+                    <span class="badge bg-light text-dark fs-6 p-2">
+                      <i class="bi bi-instagram me-1"></i> $contact_r[insta]
+                    </span>
+                  </a>
+                data;
+              }
+          ?>
+           
         </div>
         <!-- ---------------------------->
     </div>
