@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NP Hotel - Home</title>
-    <?php 
-        require("inc./links.php");
-    ?>
+    <?php  require("inc./links.php"); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <style>
@@ -25,9 +23,7 @@
 <body class="bg-light">
 
  <!-- =============header start ===================== -->
-<?php
-      require("inc/header.php");
-  ?>
+<?php require("inc/header.php"); ?>
 <!-- =============Swiper start Carousel===================== -->
 <div class="container-fluid px-lg-4 mt-4">
    <div class="swiper swiper-container">
@@ -428,54 +424,67 @@
 </div>
 
 <!-- =============Reach us start===================== -->
+<?php
+    $contact_q = "SELECT * FROM `contact_details` 
+                  WHERE `sr_no`=?  ";
+    $values = [1];
+    $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
+
+?>
+
 <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font"> REACH US</h2>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
-       <iframe class="w-100 rounded" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57903.02583807922!2d91.8198355358693!3d24.900058347637763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054d3d270329f%3A0xf58ef93431f67382!2sSylhet!5e0!3m2!1sen!2sbd!4v1702390523516!5m2!1sen!2sbd"  loading="lazy" ></iframe>
+       <iframe class="w-100 rounded" height="320px" src=" <?php echo $contact_r['iframe'] ;?>"  loading="lazy" ></iframe>
     </div>
     <div class="col-lg-4 md-lg-4">
-        <!-- ============== -->
+         <!-- ---------------------------->
         <div class="bg-white p-4 rounded mb-4">
             <h5>Call us</h5>
-            <a href="tel: +91777888991" class="d-inline-block mb-2 text-decoration-none text-dark ">
-              <i class="bi bi-telephone-fill"></i> +91777888991
+            <a href="tel: +<?php echo $contact_r['ph1'] ;?>" class="d-inline-block mb-2 text-decoration-none text-dark ">
+              <i class="bi bi-telephone-fill"></i> +<?php echo $contact_r['ph1'] ;?>
             </a>
             <br>
-            <a href="tel: +91777888991" class="d-inline-block  text-decoration-none text-dark ">
-              <i class="bi bi-telephone-fill"></i> +91777888991
-            </a>
+            <?php
+              if($contact_r['ph2']!=''){ 
+                  echo <<<data
+                      <a href="tel: + $contact_r[ph2]" class="d-inline-block  text-decoration-none text-dark ">
+                        <i class="bi bi-telephone-fill"></i> + $contact_r[ph2]
+                      </a>
+                  data;
+              }
+            ?>
+           
         </div>
-        <!-- ============== -->
+         <!-- ---------------------------->
         <div class="bg-white p-4 rounded mb-4">
           <h5>Follow us</h5>
           <a href="#" class="d-inline-block mb-3 ">
            <span class="badge bg-light text-dark fs-6 p-2">
-            <i class="bi bi-twitter me-1"></i>Twitter
+            <i class="bi bi-twitter me-1"></i><?php echo $contact_r['tw'] ;?>
            </span>
           </a>
           <br>
           <a href="#" class="d-inline-block mb-3 ">
             <span class="badge bg-light text-dark fs-6 p-2">
-             <i class="bi bi-facebook me-1"></i>Facebook
+             <i class="bi bi-facebook me-1"></i><?php echo $contact_r['fb'] ;?>
             </span>
            </a>
            <br>
            <a href="#" class="d-inline-block ">
             <span class="badge bg-light text-dark fs-6 p-2">
-             <i class="bi bi-instagram me-1"></i>Instagram
+             <i class="bi bi-instagram me-1"></i><?php echo $contact_r['insta'] ;?>
             </span>
            </a>
         </div>
-        <!-- ============== -->
+        <!-- ---------------------------->
     </div>
   </div>
 </div>
 
 <!-- =============Footer start===================== -->
-<?php   
-      require("inc./footer.php");
-?>
+<?php  require("inc./footer.php"); ?>
 
 
 

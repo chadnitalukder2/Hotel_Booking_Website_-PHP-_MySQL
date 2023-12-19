@@ -177,7 +177,7 @@
                                                     </div>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" ><i class="bi bi-telephone-fill"></i></span>
-                                                        <input type="text" name="ph-2" id="ph2_inp" class="form-control shadow-none" required>
+                                                        <input type="text" name="ph-2" id="ph2_inp" class="form-control shadow-none" >
                                                     </div>
                                                 </div>
                                                 <div class=" mb-3">
