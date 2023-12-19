@@ -1,7 +1,7 @@
 <?php
 #-------------------------uploade image---------------
 #fronted purpose data
-    define('SITE_URL', 'http://127.0.0.1/hb-website/');
+    define('SITE_URL', 'http://127.0.0.1/hb-website');
     define('ABOUT_IMG_PATH',SITE_URL.'images/about');
 
 #backend uploade process needs this data
@@ -41,21 +41,21 @@ define('ABOUT_FOLDER', 'about/');
 # =================================Management Team data=================================
 #-------------------------uploade image---------------
     function uploadImage($image, $folder){
-        $valid_mime = ['image/jpeg','image/jpg', 'image/png', 'image/webp'];
+        $valid_mime = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
         $img_mime = $image['type'];
 
         if(!in_array($img_mime, $valid_mime)){
-            return 'inv_img'; #invalid image mime or formate
+            return 'inv_img'; #invalid image mime or format
         }
-        else if(($image['size']/(1024*1024))>2){
-            return 'inv_size'; #invalide size greater than 2mb
+        else if(($image['size']/(1024*1024)) > 2){
+            return 'inv_size'; #invalid size greater than 2MB
         }
         else{
-            $ext = pathinfo($image['name'], PATHINFD_EXTENSION);
-            $rname = 'IMG_'.random_int(11111,99999).".$ext"; # IMG_94483.png 
-            $img_path = UPLOAD_IMAGE_PATH.$folder.$rname;
+            $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+            $rname = 'IMG_'.random_int(11111, 99999).".$ext"; # IMG_94483.png 
+            $img_path = UPLOAD_IMAGE_PATH . $folder . $rname;
 
-            if(move_uploaded_file($image['tmp_name'],$img_path)){
+            if(move_uploaded_file($image['tmp_name'], $img_path)){
                 return $rname;
             }
             else{
@@ -63,6 +63,7 @@ define('ABOUT_FOLDER', 'about/');
             }
         }
     }
+
 #--------------------delete member------------------
     function deleteImage($image, $folder){
         

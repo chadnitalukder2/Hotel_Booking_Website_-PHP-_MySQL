@@ -67,7 +67,7 @@
             echo $res;
     }
 # =================================Management Team data==============================================================
-    if(isset($_post['add_member'])){
+    if(isset($_POST['add_member'])){
         $frm_data = filteration($_POST);
         #----------image upload------
         $img_r = uploadImage($_FILES['picture'],ABOUT_FOLDER);
@@ -99,9 +99,9 @@
             echo <<<data
                 <div class="col-md-2">
                     <div class="card bg-dark text-white">
-                        <img src="$path$row[picture]" class="card-img" alt=".">
+                        <img src="{$path}{$row['picture']}" class="card-img" alt=".">
                         <div class="card-img-overlay text-end">
-                            <button t onclick="rem_member($row[sr_no])" class="btn btn-danger btn-sm shadow-none">
+                            <button onclick="rem_member({$row['sr_no']})" class="btn btn-danger btn-sm shadow-none">
                                 <i class="bi bi-trash"></i> Delete
                             </button>
                         </div>
@@ -111,6 +111,7 @@
             data;
         }
     }
+
 #---------------------------delete member-------------
     if(isset($_POST['rem_members'])){
         $frm_data = filteration($_POST);
