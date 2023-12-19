@@ -1,5 +1,12 @@
 <?php
 #-------------------------uploade image---------------
+#fronted purpose data
+    define('SITE_URL', 'http://127.0.0.1/hb-website/');
+    define('ABOUT_IMG_PATH',SITE_URL.'images/about');
+
+#backend uploade process needs this data
+
+
 define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'].'/hb-website/images/'); # image folder path
 define('ABOUT_FOLDER', 'about/');
 
@@ -33,7 +40,6 @@ define('ABOUT_FOLDER', 'about/');
     }
 # =================================Management Team data=================================
 #-------------------------uploade image---------------
-   
     function uploadImage($image, $folder){
         $valid_mime = ['image/jpeg','image/jpg', 'image/png', 'image/webp'];
         $img_mime = $image['type'];
@@ -57,6 +63,17 @@ define('ABOUT_FOLDER', 'about/');
             }
         }
     }
+#--------------------delete member------------------
+    function deleteImage($image, $folder){
+        
+        if(unlink(UPLOAD_IMAGE_PATH.$folder.$image)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 
 ?>
