@@ -424,12 +424,7 @@
 </div>
 
 <!-- =============Reach us start===================== -->
-<?php
-    $contact_q = "SELECT * FROM `contact_details` 
-                  WHERE `sr_no`=?  ";
-    $values = [1];
-    $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
-?>
+
 
 <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font"> REACH US</h2>
 <div class="container">
@@ -463,37 +458,25 @@
                 echo <<<data
                   <a href="$contact_r[tw]" class="d-inline-block mb-3 ">
                       <span class="badge bg-light text-dark fs-6 p-2">
-                        <i class="bi bi-twitter me-1"></i> $contact_r[tw]
+                        <i class="bi bi-twitter me-1"></i> Twitter
                       </span>
                   </a>
                 data;
               }
           ?>
           <br>
-          <?php
-              if($contact_r['fb']!=''){
-                echo <<<data
-                  <a href="$contact_r[fb]" class="d-inline-block mb-3 ">
-                    <span class="badge bg-light text-dark fs-6 p-2">
-                      <i class="bi bi-facebook me-1"></i> $contact_r[fb]
-                    </span>
-                  </a>
-                data;
-              }
-          ?>
+          <a href="<?php echo $contact_r['fb'] ; ?>" class="d-inline-block mb-3 ">
+            <span class="badge bg-light text-dark fs-6 p-2">
+              <i class="bi bi-facebook me-1"></i> Facebook
+            </span>
+          </a>
            <br>
-           <?php
-              if($contact_r['insta']!=''){
-                echo <<<data
-                  <a href="$contact_r[insta]" class="d-inline-block ">
-                    <span class="badge bg-light text-dark fs-6 p-2">
-                      <i class="bi bi-instagram me-1"></i> $contact_r[insta]
-                    </span>
-                  </a>
-                data;
-              }
-          ?>
-           
+            <a href="<?php echo $contact_r['insta'] ; ?>" class="d-inline-block ">
+              <span class="badge bg-light text-dark fs-6 p-2">
+                <i class="bi bi-instagram me-1"></i>Instagram
+              </span>
+            </a>
+          
         </div>
         <!-- ---------------------------->
     </div>
